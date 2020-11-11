@@ -1,0 +1,25 @@
+#pragma once
+
+#include "Card.h"
+
+// [ CardOne ] Summary:
+// Its Apply() Function: Decrements the value of the passing player’s wallet by a value
+// Its Parameters: The Wallet Value to decrease --> put it as a "data member" and read it in ReadCardParameters()
+
+class Card9 : public Card
+{
+	
+	CellPosition pos;
+
+public:
+	Card9(const CellPosition& pos); // A Constructor takes card position
+
+	virtual void ReadCardParameters(Grid* pGrid); // Reads the parameters of CardOne which is: walletAmount
+
+	virtual void Apply(Grid* pGrid, Player* pPlayer); // Applies the effect of CardOne on the passed Player
+													  // by decrementing the player's wallet by the walletAmount data member
+	virtual void save(ofstream& outfile, int type);
+	void setpos(CellPosition p);
+	virtual ~Card9(); // A Virtual Destructor
+};
+
